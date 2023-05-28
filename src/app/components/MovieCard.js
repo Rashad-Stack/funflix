@@ -12,8 +12,11 @@ export default function MovieCard(movie) {
         <Image
           src={backgroundImage?.url}
           alt={title}
-          width={260}
-          height={200}
+          width="0"
+          height="0"
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+          priority={true}
         />
       </div>
       <div className="card_data">

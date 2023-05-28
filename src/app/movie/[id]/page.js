@@ -15,25 +15,29 @@ export default async function MoviePage({ params }) {
 
   const res = await fetch(url, options);
   const data = await res.json();
-  const movie = data[0].details;
+  const movie = data[0]?.details;
 
   return (
     <div className="container">
       <h2 className="movie_title">
-        Netflix \ <span> {movie.type} </span>
+        Netflix \{" "}
+        {movie ? <span> {movie?.type} </span> : <span> No Movie found! </span>}
       </h2>
       <div className="card_section">
         <div>
           <Image
-            src={movie.backgroundImage.url}
-            alt={movie.title}
-            width={600}
-            height={300}
+            src={movie?.backgroundImage?.url}
+            alt={movie?.title}
+            width="0"
+            height="0"
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+            priority={true}
           />
         </div>
         <div>
-          <h1>{movie.title}</h1>
-          <p>{movie.synopsis}</p>
+          <h1>{movie?.title}</h1>
+          <p>{movie?.synopsis}</p>
         </div>
       </div>
     </div>

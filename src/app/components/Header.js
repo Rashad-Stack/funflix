@@ -14,7 +14,7 @@ export default function Header() {
             alt="logo image"
             width={150}
             height={60}
-            priority={false}
+            priority={true}
           />
         </Link>
       </div>
